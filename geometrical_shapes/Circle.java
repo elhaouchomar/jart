@@ -1,7 +1,9 @@
 package geometrical_shapes;
 
 import java.awt.Color;
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
 public class Circle implements Drawable {
     Point center;
@@ -12,14 +14,12 @@ public class Circle implements Drawable {
         this.center = center;
         this.radius = radius;
         this.color = getColor();
-
     }
 
-
-public static Circle random(int maxX, int maxY) {
+    public static Circle random(int maxX, int maxY) {
         Random rand = new Random();
-        Point center = new Point();
-        int radius = rand.nextInt(Math.max(maxX, maxY));
+        Point center = new Point(rand.nextInt(maxX), rand.nextInt(maxY));
+        int radius = rand.nextInt(Math.min(maxX, maxY) / 2 + 1);
         return new Circle(center, radius);
     }
 
@@ -28,14 +28,21 @@ public static Circle random(int maxX, int maxY) {
         int cx = this.center.x;
         int cy = this.center.y;
         int r = this.radius;
-        double stepSize = 0.1;
-        double step = (2.0 * Math.PI * r);
-        for (double i = 0.0; i <= step; i += stepSize) {
-            double theta = i * 2.0 * Math.PI / step;
-            int x = (int) (cx + r * Math.cos(theta));
-            int y = (int) (cy + r * Math.sin(theta));
+
+        if (r <= 0)
+            return;
+
+        double circumference = 2.0 * Math.PI * r;
+        double inc = 360.0 / circumference;
+        double i = 0.0;
+
+        while (i <= 360.0) {
+            double theta = Math.toRadians(i);
+            int x = (int) Math.round(cx + r * Math.cos(theta));
+            int y = (int) Math.round(cy + r * Math.sin(theta));
             displayable.display(x, y, this.color);
+
+            i += inc;
         }
     }
-    
 }
