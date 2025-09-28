@@ -22,7 +22,7 @@ public class Circle implements Drawable {
     }
 
     @Override
-    public void draw(Displayable displayable) {
+    public void draw(Displayable d) {
         int cx = this.center.x;
         int cy = this.center.y;
         int r = this.radius;
@@ -38,7 +38,7 @@ public class Circle implements Drawable {
             double theta = Math.toRadians(i);
             int x = (int) Math.round(cx + r * Math.cos(theta));
             int y = (int) Math.round(cy + r * Math.sin(theta));
-            displayable.display(x, y, this.color);
+            d.display(x, y, this.color);
 
             i += inc;
         }

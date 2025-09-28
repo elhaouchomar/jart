@@ -14,9 +14,9 @@ public class Triangle implements Drawable {
     }
 
     @Override
-    public void draw(Displayable displayable) {
-        new Line(p1, p2, color).draw(displayable);
-        new Line(p2, p3, color).draw(displayable);
-        new Line(p3, p1, color).draw(displayable);
+    public void draw(Displayable d) {
+        new Line(p1, p2, color).draw(d);
+        new Line(p2, p3, color).draw(d);
+        new Line(p3, p1, color).draw(d);
     }
 }

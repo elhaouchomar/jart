@@ -23,12 +23,12 @@ public class Line implements Drawable {
     }
 
     @Override
-    public void draw(Displayable displayable) {
+    public void draw(Displayable d) {
         int dx = end.x - start.x;
         int dy = end.y - start.y;
         int steps = Math.max(Math.abs(dx), Math.abs(dy));
         if (steps == 0) {
-            displayable.display(start.x, start.y, color);
+            d.display(start.x, start.y, color);
             return;
         }
         float xInc = dx / (float) steps;
@@ -36,7 +36,7 @@ public class Line implements Drawable {
         float x = start.x;
         float y = start.y;
         for (int i = 0; i <= steps; i++) {
-            displayable.display(Math.round(x), Math.round(y), color);
+            d.display(Math.round(x), Math.round(y), color);
             x += xInc;
             y += yInc;
         }

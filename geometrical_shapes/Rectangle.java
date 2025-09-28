@@ -3,23 +3,23 @@ package geometrical_shapes;
 import java.awt.Color;
 
 public class Rectangle implements Drawable {
-    Point topLeft, bottomRight;
+    Point tl, br;
     Color color;
 
-    public Rectangle(Point topLeft, Point bottomRight) {
-        this.topLeft = topLeft;
-        this.bottomRight = bottomRight;
+    public Rectangle(Point tl, Point br) {
+        this.tl = tl;
+        this.br = br;
         this.color = getColor();
     }
 
     @Override
     public void draw(Displayable d) {
-        Point topRight = new Point(bottomRight.x, topLeft.y);
-        Point bottomLeft = new Point(topLeft.x, bottomRight.y);
+        Point tr = new Point(br.x, tl.y);
+        Point bl = new Point(tl.x, br.y);
 
-        new Line(topLeft, topRight, color).draw(d);
-        new Line(topLeft, bottomLeft, color).draw(d);
-        new Line(topRight, bottomRight, color).draw(d);
-        new Line(bottomLeft, bottomRight, color).draw(d);
+        new Line(tl, tr, color).draw(d);
+        new Line(tl, bl, color).draw(d);
+        new Line(tr, br, color).draw(d);
+        new Line(bl, br, color).draw(d);
     }
 }

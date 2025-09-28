@@ -19,7 +19,7 @@ public class Point implements Drawable {
     }
 
     @Override
-    public void draw(Displayable displayable) {
-        displayable.display(x, y, color);
+    public void draw(Displayable d) {
+        d.display(x, y, color);
     }
 }

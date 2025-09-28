@@ -7,21 +7,21 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class Image implements Displayable {
-    private int width, height;
+    private int w, h;
     public BufferedImage image;
 
-    public Image(int width, int height) {
-        this.width = width;
-        this.height = height;
-        image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+    public Image(int w, int h) {
+        this.w = w;
+        this.h = h;
+        image = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
     }
 
-    public int getWidth() { return width; }
-    public int getHeight() { return height; }
+    public int getWidth() { return w; }
+    public int getHeight() { return h; }
 
     @Override
     public void display(int x, int y, Color color) {
-        if (x < 0 || y < 0 || x >= width || y >= height) return;
+        if (x < 0 || y < 0 || x >= w || y >= h) return;
         image.setRGB(x, y, color.getRGB());
     }
 
