@@ -18,7 +18,7 @@ public class Line implements Drawable {
         this.end = end;
         this.color = color;
     }
-
+  
     public Point getStart() {
         return this.start;
     }
@@ -26,7 +26,7 @@ public class Line implements Drawable {
     public Point getEnd() {
         return this.end;
     }
-
+  
     @Override
     public void draw(Displayable displayable) {
 

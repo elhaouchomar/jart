@@ -13,9 +13,7 @@ public class Rectangle implements Drawable {
     public void draw(Displayable d){
         Point bdya = new Point(this.Rec1.x, this.Rec2.y);
         Point tania =new Point(this.Rec2.x, this.Rec1.y);
-        Point talt = new Point(bdya.x, this.Rec2.y);
-        Point rb3a = new Point(tania.x, this.Rec2.y);
-
+        
         Line line1 = new Line(this.Rec1, bdya,color);
         Line line2 = new Line(this.Rec1, tania,color);
         Line line3 = new Line(bdya, this.Rec2,color);
